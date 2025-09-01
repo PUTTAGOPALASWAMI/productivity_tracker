@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Productivity Tracker Design System - Modern gradients and professional colors */
+
+@layer base {
+  :root {
+    --background: 250 100% 99%;
+    --foreground: 228 84% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 228 84% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 84% 15%;
+
+    --primary: 234 89% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 243 100% 75%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 228 84% 15%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 234 89% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 234 89% 60%;
+
+    --radius: 0.75rem;
+
+    /* Beautiful gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(234 89% 60%) 0%, hsl(270 100% 70%) 50%, hsl(300 100% 75%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+    --gradient-subtle: linear-gradient(180deg, hsl(250 100% 99%), hsl(240 100% 98%));
+    
+    /* Glassmorphism effects */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --backdrop-blur: blur(16px);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 24px -2px rgba(16, 24, 40, 0.08);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 228 84% 15%;
+    --foreground: 250 100% 99%;
+
+    --card: 228 84% 15%;
+    --card-foreground: 250 100% 99%;
+
+    --popover: 228 84% 15%;
+    --popover-foreground: 250 100% 99%;
+
+    --primary: 243 100% 75%;
+    --primary-foreground: 228 84% 15%;
+    --primary-glow: 270 100% 80%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 250 100% 99%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 243 100% 75%;
+    --accent-foreground: 228 84% 15%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 250 100% 99%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 243 100% 75%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(243 100% 75%) 0%, hsl(270 100% 80%) 50%, hsl(300 100% 85%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background via-background to-muted/30 text-foreground min-h-screen;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white/25 backdrop-blur-sm border border-white/20 rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  /* Animation utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
